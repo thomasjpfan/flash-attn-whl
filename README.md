@@ -14,7 +14,7 @@ uv pip install flash-attn \
     --extra-index-url https://thomasjpfan.github.io/flash-attn-whl/cu12/$TORCH/$CXX
 ```
 
-where `TORCH` is your PyTorch version.
+where `TORCH` is your PyTorch version. Find supported PyTorch versions [here](https://thomasjpfan.github.io/flash-attn-whl/cu12/).
 
 ### PyTorch compiled with CXX11ABI
 
