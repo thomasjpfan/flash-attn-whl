@@ -36,20 +36,28 @@ jobs:
         env:
           _GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Update index
+        run: uv run python make_index.py assets.csv --out docs
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --cached --quiet; then
+            echo "No changes detected."
+            echo "has_changes=false" >> $GITHUB_ENV
+          else
+            echo "Changes detected."
+            echo "has_changes=true" >> $GITHUB_ENV
+          fi
+
       - name: Commit asset changes
+        if: env.has_changes == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Update assets"
-
-      - name: Update index
-        run: uv run python make_index.py assets.csv --out docs
-
-      - name: Commit index
-        run: |
-          git add -A
           git commit -m "Update index"
 
       - name: Push changes
+        if: env.has_changes == 'true'
         run: git push
