@@ -4,13 +4,14 @@ This repo creates a wheel index that links back to the releases from [github.com
 
 ## Usage
 
-If you installed PyTorch from PyPI, then install `flash-attn` with:
+If you installed PyTorch from PyPI using [uv](https://docs.astral.sh/uv/), then install `flash-attn` with:
 
 ```bash
 export TORCH=torch2.6
+export CXX=cxx11abiFALSE
 
-pip install flash-attn \
-    --extra-index-url https://thomasjpfan.github.io/flash-attn-whl/cu12/$TORCH/cxx11abiFALSE
+uv pip install flash-attn \
+    --extra-index-url https://thomasjpfan.github.io/flash-attn-whl/cu12/$TORCH/$CXX
 ```
 
 where `TORCH` is your PyTorch version.
@@ -23,7 +24,7 @@ If you got PyTorch from a nvcr image, then you likely need wheels built with `cx
 export TORCH=torch2.6
 export CXX=cxx11abiTRUE
 
-pip install flash-attn \
+uv pip install flash-attn \
     --extra-index-url https://thomasjpfan.github.io/flash-attn-whl/cu12/$TORCH/$CXX
 ```
 
