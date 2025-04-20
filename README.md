@@ -27,7 +27,7 @@ pip install flash-attn \
     --extra-index-url https://thomasjpfan.github.io/flash-attn-whl/cu12/$TORCH/$CXX
 ```
 
-To confirm, please run [torch.compiled_with_cxx11_abi()](https://pytorch.org/docs/stable/generated/torch.compiled_with_cxx11_abi.html). Overall:
+To confirm, please run [torch.compiled_with_cxx11_abi](https://pytorch.org/docs/stable/generated/torch.compiled_with_cxx11_abi.html). Overall:
 
 - If you install PyTorch from a nvcr image, then you likely need `CXX=cxx11abiTRUE`
 - If you installed PyTorch from PyPI, then you likely need `CXX=cxx11abiFALSE`
