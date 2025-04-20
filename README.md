@@ -8,13 +8,26 @@ If you installed PyTorch from PyPI, then install `flash-attn` with:
 
 ```bash
 export TORCH=torch2.6
-export CXX=cxx11abiFALSE
 
 pip install flash-attn \
-    --extra-index-url https://thomasjpfan.github.io/flash-attn-whl/cu12/$TORCH/$CXX/
+    --extra-index-url https://thomasjpfan.github.io/flash-attn-whl/cu12/$TORCH/cxx11abiFALSE
 ```
 
-where `TORCH` is your PyTorch version. `CXX` should be set to `cxx11abiFALSE` your PyTorch was compiled with `_GLIBCXX_USE_CXX11_ABI`.
+where `TORCH` is your PyTorch version.
+
+### Advanced
+
+If you got PyTorch from a nvcr image, then you likely need `cxx11abiTRUE`:
+
+```bash
+export TORCH=torch2.6
+export CXX=cxx11abiTRUE
+
+pip install flash-attn \
+    --extra-index-url https://thomasjpfan.github.io/flash-attn-whl/cu12/$TORCH/$CXX
+```
+
+`CXX` should be set to `cxx11abiFALSE` your PyTorch was compiled with `_GLIBCXX_USE_CXX11_ABI`.
 
 - `CXX=cxx11abiFALSE`: If you installed PyTorch from PyPI, then you likely need `CXX=cxx11abiFALSE`
 - `CXX=cxx11abiTRUE`: If you got PyTorch from a nvcr image, then you likely need `CXX=cxx11abiTRUE`
