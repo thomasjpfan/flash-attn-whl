@@ -1,0 +1,52 @@
+name: Build Index
+
+on:
+  schedule:
+    - cron: "40 19 * * *"
+  workflow_dispatch:
+
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - users: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install the project
+        run: uv sync --no-dev
+
+      - name: Update assets.csv
+        run: uv run python update_csv.py assets.csv
+        env:
+          _GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit asset changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update assets"
+
+      - name: Update index
+        run: uv run python make_index.py assets.csv --out docs
+
+      - name: Commit index
+        run: git commit -m "Update index"
+
+      - name: Push changes
+        run: git push
