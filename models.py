@@ -28,8 +28,8 @@ def read_csv(csv_file: Path) -> list[ReleaseAsset]:
     return output
 
 
-def sort_key(asset: ReleaseAsset) -> Version:
-    return parse(asset.version)
+def sort_key(asset: ReleaseAsset) -> tuple:
+    return (parse(asset.version), asset.name, asset.cuda, asset.torch, asset.cxx, asset.python)
 
 
 def write_assets(csv_file: Path, assets: list[ReleaseAsset]):
