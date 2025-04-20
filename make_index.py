@@ -4,7 +4,7 @@ from collections import defaultdict
 from pathlib import Path
 import typer
 from typing import Annotated, NamedTuple
-from models import read_csv, ReleaseAsset
+from models import read_csv, ReleaseAsset, sort_key
 
 
 PACKAGE_NAME = "flash-attn"
@@ -29,8 +29,9 @@ $LINKS
 
 def create_package_whl_index(variant: Variant, assets: list[ReleaseAsset]) -> str:
     header = f"flash-attn: Python wheels for CUDA {variant.cuda} + {variant.torch} + {variant.cxx}"
+    sorted_assets = sorted(assets, key=sort_key)
     links = []
-    for asset in assets:
+    for asset in sorted_assets:
         links.append(f'<a href="{asset.download_url}">{asset.name}</a><br>')
     all_links = os.linesep.join(links)
 
