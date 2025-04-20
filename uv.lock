@@ -124,7 +124,7 @@ wheels = [
 ]
 
 [[package]]
-name = "flash-atten-whl"
+name = "flash-attn-whl"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
