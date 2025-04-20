@@ -36,3 +36,9 @@ To confirm, please run [torch.compiled_with_cxx11_abi](https://pytorch.org/docs/
 ## Navigate the index
 
 This [wheel index](https://thomasjpfan.github.io/flash-attn-whl/) is split into the variants shown in [github.com/Dao-AILab/flash-attention/releases](https://github.com/Dao-AILab/flash-attention/releases): CUDA version, PyTorch version, and `CXX11ABI`. If a release does not have any generated wheels, it will be excluded from this index.
+
+## FAQ
+
+### Why does the index not work with normal `pip`?
+
+As for `pip>=21.0`, it's resolver requires the metadata and the wheel filename to match. There is an upstream PR that will fix it: [Dao-AILab/flash-attention#856](https://github.com/Dao-AILab/flash-attention/pull/856).
