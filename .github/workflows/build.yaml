@@ -39,6 +39,9 @@ jobs:
       - name: Update index
         run: uv run python make_index.py assets.csv --out docs
 
+      - name: Add changes
+        run: git add -A
+
       - name: Check for changes
         id: check_changes
         run: |
@@ -55,7 +58,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
           git commit -m "Update index"
 
       - name: Push changes
