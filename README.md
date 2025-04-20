@@ -15,9 +15,9 @@ pip install flash-attn \
 
 where `TORCH` is your PyTorch version.
 
-### Advanced
+### PyTorch compiled with CXX11ABI
 
-If you got PyTorch from a nvcr image, then you likely need `cxx11abiTRUE`:
+If you got PyTorch from a nvcr image, then you likely need wheels built with `cxx11abiTRUE`:
 
 ```bash
 export TORCH=torch2.6
@@ -27,12 +27,10 @@ pip install flash-attn \
     --extra-index-url https://thomasjpfan.github.io/flash-attn-whl/cu12/$TORCH/$CXX
 ```
 
-`CXX` should be set to `cxx11abiFALSE` your PyTorch was compiled with `_GLIBCXX_USE_CXX11_ABI`.
+To confirm, please run [torch.compiled_with_cxx11_abi()](https://pytorch.org/docs/stable/generated/torch.compiled_with_cxx11_abi.html). Overall:
 
-- `CXX=cxx11abiFALSE`: If you installed PyTorch from PyPI, then you likely need `CXX=cxx11abiFALSE`
-- `CXX=cxx11abiTRUE`: If you got PyTorch from a nvcr image, then you likely need `CXX=cxx11abiTRUE`
-
-To confirm, please run [torch.compiled_with_cxx11_abi()](https://pytorch.org/docs/stable/generated/torch.compiled_with_cxx11_abi.html).
+- If you install PyTorch from a nvcr image, then you likely need `CXX=cxx11abiTRUE`
+- If you installed PyTorch from PyPI, then you likely need `CXX=cxx11abiFALSE`
 
 ## Navigate the index
 
