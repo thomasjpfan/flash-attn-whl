@@ -1,7 +1,7 @@
 from typing import Optional
 from pathlib import Path
 from csv import DictReader, DictWriter
-from packaging.version import Version, parse
+from packaging.version import parse
 
 from dataclasses import dataclass, fields, asdict
 
@@ -29,7 +29,7 @@ def read_csv(csv_file: Path) -> list[ReleaseAsset]:
 
 
 def sort_key(asset: ReleaseAsset) -> tuple:
-    return (parse(asset.version), asset.name, asset.cuda, asset.torch, asset.cxx, asset.python)
+    return (parse(asset.version), asset.name, asset.cuda, asset.torch, asset.cxx, asset.python, asset.download_url)
 
 
 def write_assets(csv_file: Path, assets: list[ReleaseAsset]):
