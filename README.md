@@ -1,6 +1,6 @@
 # flash-attn Python wheel index
 
-This repo creates a wheel index that links back to the releases from [github.com/Dao-AILab/flash-attention/releases](https://github.com/Dao-AILab/flash-attention/releases). This allows you to install `flash-attn` without building the wheel locally.
+This repo creates a [wheel index](https://thomasjpfan.github.io/flash-attn-whl/) that links back to the releases from [github.com/Dao-AILab/flash-attention/releases](https://github.com/Dao-AILab/flash-attention/releases). This allows you to install `flash-attn` without building the wheel locally.
 
 ## Usage
 
