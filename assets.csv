@@ -1,4 +1,7 @@
 version,name,cuda,torch,cxx,python,download_url
+v2.8.0.post2,,,,,,
+v2.8.0.post1,,,,,,
+v2.8.0,,,,,,
 v2.7.4.post1,flash_attn-2.7.4.post1+cu12torch2.6cxx11abiTRUE-cp39-cp39-linux_x86_64.whl,cu12,torch2.6,cxx11abiTRUE,cp39,https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1%2Bcu12torch2.6cxx11abiTRUE-cp39-cp39-linux_x86_64.whl
 v2.7.4.post1,flash_attn-2.7.4.post1+cu12torch2.6cxx11abiTRUE-cp313-cp313-linux_x86_64.whl,cu12,torch2.6,cxx11abiTRUE,cp313,https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1%2Bcu12torch2.6cxx11abiTRUE-cp313-cp313-linux_x86_64.whl
 v2.7.4.post1,flash_attn-2.7.4.post1+cu12torch2.6cxx11abiTRUE-cp312-cp312-linux_x86_64.whl,cu12,torch2.6,cxx11abiTRUE,cp312,https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1%2Bcu12torch2.6cxx11abiTRUE-cp312-cp312-linux_x86_64.whl
